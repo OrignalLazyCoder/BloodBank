@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "228573442224",
+    "firebase_url": "https://loginemailveri.firebaseio.com",
+    "project_id": "loginemailveri",
+    "storage_bucket": "loginemailveri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228573442224:android:3ee753dfc75a1e8c",
+        "android_client_info": {
+          "package_name": "com.vaibhav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228573442224-ra4q7aig29634h7lsc9m53iiomq4urj1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaibhav",
+            "certificate_hash": "ee8c97adaed2744d2afe71789296afc5e42c26ad"
+          }
+        },
+        {
+          "client_id": "228573442224-b3rioi3qq5n6a2duomi8515bpm4ue9vd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbYGB98pcg7ViNE-cdHot0Bb-U6EFm65s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228573442224-b3rioi3qq5n6a2duomi8515bpm4ue9vd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
