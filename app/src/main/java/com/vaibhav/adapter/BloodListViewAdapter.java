@@ -112,7 +112,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             public void onClick(View v) {
                 reference = database.getReference().child("appeals").child(bloodModel.getAppealId()).child("Response");
                 canSayYes = true;
-                reference.addValueEventListener(new ValueEventListener() {
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
@@ -122,6 +122,21 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
                                 canSayYes = false;
                             }
                         }
+
+                        if (canSayYes) {
+                            String key = reference.push().getKey();
+                            Map<String, Object> childUpdates = new HashMap<>();
+                            childUpdates.put("userEmail", user.getEmail());
+                            childUpdates.put("userMobile", mobile);
+                            childUpdates.put("userName", name);
+                            reference.child(key).child("userEmail").setValue(user.getEmail());
+                            reference.child(key).child("userMobile").setValue(mobile);
+                            reference.child(key).child("userName").setValue(name);
+                            Log.d("key" , key);
+                        }
+                        else{
+                            Toast.makeText(getContext() , "You have already volunteered for this"  , Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
@@ -130,21 +145,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
                     }
                 });
 
-                Toast.makeText(activity, "Reference Key: "+ reference.getKey(), Toast.LENGTH_SHORT).show();
-                if (canSayYes) {
-                    String key = reference.push().getKey();
-                    Map<String, Object> childUpdates = new HashMap<>();
-                    childUpdates.put("userEmail", user.getEmail());
-                    childUpdates.put("userMobile", mobile);
-                    childUpdates.put("userName", name);
-                    reference.child(key).child("userEmail").setValue(user.getEmail());
-                    reference.child(key).child("userMobile").setValue(mobile);
-                    reference.child(key).child("userName").setValue(name);
-                    Log.d("key" , key);
-                }
-                else{
-                    Toast.makeText(getContext() , "You have already volunteered for this"  , Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 
