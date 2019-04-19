@@ -41,6 +41,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
     DatabaseReference userRef;
     String name = " ";
     String mobile = " " ;
+    String location = " ";
     Boolean canSayYes = true;
 
     public BloodListViewAdapter(Activity context , int resource , List<BloodModel> objects){
@@ -87,6 +88,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 name = (String) dataSnapshot.child("Name").getValue();
                 mobile = (String) dataSnapshot.child("mobile").getValue();
+                location = (String) dataSnapshot.child("city").getValue();
 
             }
 
@@ -134,17 +136,10 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
                     String key = reference.push().getKey();
                     Map<String, Object> childUpdates = new HashMap<>();
                     childUpdates.put("userEmail", user.getEmail());
-                    System.out.println(mobile + "yes yes yes");
                     childUpdates.put("userMobile", mobile);
                     childUpdates.put("userName", name);
-//
-//                    reference.child(key).updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
-//                        @Override
-//                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-//                            if (databaseError == null) {
-//                            }
-//                        }
-//                    });
+                    childUpdates.put("location" , location);
+
                     reference.child(key).child("userEmail").setValue(user.getEmail());
                     reference.child(key).child("userMobile").setValue(mobile);
                     reference.child(key).child("userName").setValue(name);
