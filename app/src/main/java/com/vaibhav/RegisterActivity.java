@@ -58,6 +58,8 @@ public class RegisterActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        reference = database.getReference().child("users");
+
 
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +84,13 @@ public class RegisterActivity extends AppCompatActivity {
                             String type= " ";
 
                             String userID = auth.getCurrentUser().getUid();
-                            DatabaseReference creationReference = reference.child(userID);
                             if(bloodBank.isChecked()){
                                 type= "BloodBank";
                             }
                             if(normalUser.isChecked()){
                                 type = "user";
                             }
+                            DatabaseReference creationReference = reference.child(userID);
 
                             creationReference.child("Email").setValue(email);
                             creationReference.child("Name").setValue("n/a");
