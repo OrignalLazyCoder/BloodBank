@@ -38,6 +38,7 @@ public class Home extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,34 +51,33 @@ public class Home extends AppCompatActivity {
         user  = auth.getCurrentUser();
         emailCheck = findViewById(R.id.emailCheck);
 
+
         database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("users").child(user.getUid());
-        final String[] userType = {" "};
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String type = dataSnapshot.child("type").getValue(String.class);
-                userType[0] = type;
-//                Toast.makeText(getApplicationContext() , type , Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        String userType = " ";
 
         if(true){
             emailCheck.setText("Email Verified");
-            if(userType[0].equals("user")) {
-                startActivity(new Intent(Home.this, CreateNormalUserActivity.class));
-                finish();
-            }
-            else{
-                startActivity(new Intent(Home.this , CreateBloodBankActivity.class));
-                finish();
-            }
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String type = dataSnapshot.child("type").getValue(String.class);
+                    Toast.makeText(getApplicationContext() , type , Toast.LENGTH_SHORT).show();
+                    if(type.equals("user")) {
+                        startActivity(new Intent(Home.this, CreateNormalUserActivity.class));
+                        finish();
+                    }
+                    if(type.equals("BloodBank")){
+                        startActivity(new Intent(Home.this , CreateBloodBankActivity.class));
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
         else{
             emailCheck.setText("Email Not verified");
