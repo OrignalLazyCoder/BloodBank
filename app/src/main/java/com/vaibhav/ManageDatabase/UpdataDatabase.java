@@ -70,6 +70,16 @@ public class UpdataDatabase extends AppCompatActivity {
                 bn[0] = Bn.getText().toString().trim();
                 abp[0] = ABp.getText().toString().trim();
                 abn[0] = ABn.getText().toString().trim();
+
+                reference.child("Ap").setValue(an[0]);
+                reference.child("An").setValue(an[0]);
+                reference.child("Bp").setValue(bp[0]);
+                reference.child("Bn").setValue((bn[0]));
+                reference.child("Op").setValue(op[0]);
+                reference.child("On").setValue(on[0]);
+                reference.child("ABp").setValue(abp[0]);
+                reference.child("ABn").setValue(abn[0]);
+
             }
         });
 

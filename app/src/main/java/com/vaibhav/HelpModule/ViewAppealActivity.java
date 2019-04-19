@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.style.UpdateAppearance;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,11 +24,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.vaibhav.AppealModule.PostAppealActivity;
 import com.vaibhav.MainActivity;
+import com.vaibhav.ManageDatabase.UpdataDatabase;
 import com.vaibhav.R;
 import com.vaibhav.adapter.BloodListViewAdapter;
 import com.vaibhav.model.BloodModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ViewAppealActivity extends AppCompatActivity {
 
@@ -37,6 +44,7 @@ public class ViewAppealActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference reference;
+    DatabaseReference referenceForAppeals;
     String userType = " ";
 
 
@@ -46,7 +54,7 @@ public class ViewAppealActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_appeal);
 
-        lvBloodAppeal = (ListView) findViewById(R.id.lvBLoodAppeal);
+        lvBloodAppeal =  findViewById(R.id.lvBLoodAppeal);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -66,41 +74,72 @@ public class ViewAppealActivity extends AppCompatActivity {
             }
         });
 
-        list = new ArrayList<BloodModel>();
+        list = new ArrayList<>();
+
+        final BloodListViewAdapter bloodListViewAdapter = new BloodListViewAdapter(this, R.layout.blood_appeal_listview_layout, list);
 
 
-        BloodModel b1 = new BloodModel(
-                "Haris Tyagi",
-                "AB+",
-                "1000",
-                true,
-                "100000",
-                "Muzaffarnagar",
-                "S.C. Gupta",
-                "3 A.M Tommorow",
-                "9045997787"
-        );
+        referenceForAppeals = database.getReference().child("appeals");
+        referenceForAppeals.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
 
-        BloodModel b2 = new BloodModel(
-                "Haris Tyagi",
-                "AB+",
-                "1000",
-                true,
-                "100000",
-                "Muzaffarnagar",
-                "S.C. Gupta",
-                "3 A.M Tommorow",
-                "9045997787"
-        );
+                    BloodModel b1 = new BloodModel(
+                            item_snapshot.child("name").getValue().toString(),
+                            item_snapshot.child("bloodGroup").getValue().toString(),
+                            item_snapshot.child("units").getValue().toString(),
+                            true,
+                            item_snapshot.child("platelets").getValue().toString(),
+                            item_snapshot.child("location").getValue().toString(),
+                            item_snapshot.child("hospital").getValue().toString(),
+                            item_snapshot.child("DateTime").getValue().toString(),
+                            item_snapshot.child("mobile").getValue().toString()
+                    );
+                   // Log.d("Check" , b1.getName());
+                    list.add(b1);
+                    lvBloodAppeal.setAdapter(bloodListViewAdapter);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        BloodModel b1 = new BloodModel(
+//                "Haris Tyagi",
+//                "AB+",
+//                "1000",
+//                true,
+//                "100000",
+//                "Muzaffarnagar",
+//                "S.C. Gupta",
+//                "3 A.M Tommorow",
+//                "9045997787"
+//        );
+//
+//        BloodModel b2 = new BloodModel(
+//                "Haris Tyagi",
+//                "AB+",
+//                "1000",
+//                true,
+//                "100000",
+//                "Muzaffarnagar",
+//                "S.C. Gupta",
+//                "3 A.M Tommorow",
+//                "9045997787"
+//        );
+//
+//
+//        list.add(b1);
+//        list.add(b2);
+//        list.add(b2);
 
 
-        list.add(b1);
-        list.add(b2);
-        list.add(b2);
 
-        BloodListViewAdapter bloodListViewAdapter = new BloodListViewAdapter(this, R.layout.blood_appeal_listview_layout, list);
-
-        lvBloodAppeal.setAdapter(bloodListViewAdapter);
 
     }
 
@@ -128,6 +167,7 @@ public class ViewAppealActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(getApplicationContext() , "WOrking on it" , Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext() , UpdataDatabase.class));
                 }
             default:
                 return super.onOptionsItemSelected(item);
