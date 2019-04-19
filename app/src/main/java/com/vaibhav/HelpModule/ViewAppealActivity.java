@@ -135,6 +135,7 @@ public class ViewAppealActivity extends AppCompatActivity {
 
             case R.id.myAppeals:
                 startActivity(new Intent(getApplicationContext(), AnalyzeAppealActivity.class));
+                return true;
 
             case R.id.Checkbanks:
                 startActivity(new Intent(getApplicationContext() , CheckBloodBankDetailsActivity.class));
