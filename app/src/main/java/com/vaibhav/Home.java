@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.vaibhav.LoginModule.CreateBloodBankActivity;
 import com.vaibhav.LoginModule.CreateNormalUserActivity;
 
 import org.w3c.dom.Text;
@@ -37,7 +38,7 @@ public class Home extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference reference;
-
+    String userType = " ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String type = dataSnapshot.child("type").getValue(String.class);
+                userType = type;
                 Toast.makeText(getApplicationContext() , type , Toast.LENGTH_SHORT).show();
             }
 
@@ -68,8 +70,14 @@ public class Home extends AppCompatActivity {
 
         if(user.isEmailVerified()){
             emailCheck.setText("Email Verified");
-            startActivity(new Intent(Home.this , CreateNormalUserActivity.class));
-            finish();
+            if(userType.equals("user")) {
+                startActivity(new Intent(Home.this, CreateNormalUserActivity.class));
+                finish();
+            }
+            else{
+                startActivity(new Intent(Home.this , CreateBloodBankActivity.class));
+                finish();
+            }
         }
         else{
             emailCheck.setText("Email Not verified");
