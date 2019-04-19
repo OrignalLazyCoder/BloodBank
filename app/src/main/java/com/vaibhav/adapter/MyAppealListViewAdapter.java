@@ -60,7 +60,7 @@ public class MyAppealListViewAdapter extends ArrayAdapter<MyAppealsModel> {
 
                 Intent intent = new Intent(getContext(), ViewMyDonorActivity.class);
 
-                intent.putExtra("donorId",myAppeal.getAppealId());
+                intent.putExtra("appealId",myAppeal.getAppealId());
 
                 getContext().startActivity(intent);
 

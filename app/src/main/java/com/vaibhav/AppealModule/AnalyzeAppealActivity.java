@@ -43,36 +43,30 @@ public class AnalyzeAppealActivity extends AppCompatActivity {
 
         final MyAppealListViewAdapter myAppealListViewAdapter = new MyAppealListViewAdapter(this, R.layout.myappeals_listview_layout, myAppealsModelArrayList);
 
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-//                    if(snapshot.child("email").getValue().toString().equals(user.getEmail())){
-////                        MyAppealsModel newAppeal = new MyAppealsModel(
-////                                "1",
-////                                "Haris Tyagi",
-////                                "19/04/2019 17:11:32",
-////                                "O-",
-////                                "10000",
-////                                23
-////                        );
-//                        MyAppealsModel myAppealsModel = new MyAppealsModel(
-//                            snapshot.child("ID").getValue().toString(),
-//                            snapshot.child("name").getKey().toString(),
-//                        );
-//                        myAppealsModelArrayList.add(newAppeal);
-//                    }
-//                }
-//                myAppealListView.setAdapter(myAppealListViewAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//        myAppealsModelArrayList.add(newAppeal);
-//        myAppealsModelArrayList.add(newAppeal);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    if(snapshot.child("uploadedBy").getValue().toString().equals(user.getEmail())){
+                        MyAppealsModel newAppeal = new MyAppealsModel(
+                                snapshot.child("ID").getValue().toString(),
+                                snapshot.child("name").getValue().toString(),
+                                snapshot.child("DateTime").getValue().toString(),
+                                snapshot.child("bloodGroup").getValue().toString(),
+                                snapshot.child("platelets").getValue().toString(),
+                                10
+
+                        );
+                        myAppealsModelArrayList.add(newAppeal);
+                    }
+                }
+                myAppealListView.setAdapter(myAppealListViewAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

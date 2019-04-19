@@ -86,7 +86,9 @@ public class ViewAppealActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
-
+                    if(item_snapshot.child("uploadedBy").getValue().toString().equals(user.getEmail())){
+                        continue;
+                    }
                     BloodModel b1 = new BloodModel(
                             item_snapshot.child("ID").getValue().toString(),
                             item_snapshot.child("name").getValue().toString(),
