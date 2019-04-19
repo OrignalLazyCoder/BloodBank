@@ -131,6 +131,9 @@ public class ViewAppealActivity extends AppCompatActivity {
                 auth.signOut();
                 startActivity(new Intent(getApplicationContext() , MainActivity.class));
                 finish();
+            case R.id.Checkbanks:
+                startActivity(new Intent(getApplicationContext() , CheckBloodBankDetailsActivity.class));
+                return true;
             case R.id.data:
                 if(userType.equals("user")){
                     Toast.makeText(getApplicationContext() , "This feature is only for blood banks" , Toast.LENGTH_SHORT).show();

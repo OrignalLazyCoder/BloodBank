@@ -7,6 +7,10 @@
     <item android:id="@+id/data"
         android:title="update Data"/>
 
+    <item
+        android:id="@+id/Checkbanks"
+        android:title="Check nearby blood banks" />
+
     <item android:id="@+id/logout"
         android:title="logout" />
 </menu>
