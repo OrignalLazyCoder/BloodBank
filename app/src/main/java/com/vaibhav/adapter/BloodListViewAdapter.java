@@ -1,18 +1,21 @@
 package com.vaibhav.adapter;
 
-        import android.app.Activity;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
-        import android.widget.TextView;
+import android.widget.Button;
+import android.widget.TextView;
 
 
-        import com.vaibhav.R;
-        import com.vaibhav.model.BloodModel;
+import com.vaibhav.R;
+import com.vaibhav.model.BloodModel;
 
-        import java.util.List;
+import java.util.List;
 
 
 
@@ -32,20 +35,14 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         ViewHolder holder;
         LayoutInflater inflater = (LayoutInflater)  activity.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
-        int layoutResource = 0;
-        BloodModel bloodModel = getItem(position);
-        int viewType = getItemViewType(position);
+        final BloodModel bloodModel = getItem(position);
 
-        if(true){
 
-            layoutResource = R.layout.blood_appeal_listview_layout;
-
-        }
 
         if (convertView != null) {
             holder = (ViewHolder) convertView.getTag();
         } else {
-            convertView = inflater.inflate(layoutResource, parent, false);
+            convertView = inflater.inflate(R.layout.blood_appeal_listview_layout, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
@@ -56,10 +53,26 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         holder.tvBloodGroup.setText(bloodModel.getBloodType());
         holder.tvBloodUnit.setText(bloodModel.getBloodUnit());
         holder.tvPlateCount.setText(bloodModel.getPlateletsCount());
-        holder.tvLocation.setText(bloodModel.getLocation());
         holder.tvHospitalName.setText(bloodModel.getHospital());
         holder.tvTime.setText(bloodModel.getTime());
         holder.tvMobile.setText(bloodModel.getMobile());
+
+        holder.btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + bloodModel.getMobile()));
+                getContext().startActivity(intent);
+            }
+        });
+
+        holder.btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         return convertView;
@@ -72,16 +85,11 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         return 2;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        // return a value between 0 and (getViewTypeCount - 1)
-        return position %2 ;
-    }
+
 
 
     private class ViewHolder {
 
-        //private LinearLayout l;
 
         TextView tvName;
         TextView tvBloodGroup;
@@ -89,11 +97,13 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
 
 
         TextView tvPlateCount;
-        TextView tvLocation;
         TextView tvHospitalName;
 
         TextView tvTime;
         TextView tvMobile;
+
+        Button btnCall;
+        Button btnYes;
 
 
         public ViewHolder(View v) {
@@ -103,12 +113,16 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             tvBloodUnit = v.findViewById(R.id.tvBloodUnit);
 
             tvPlateCount = v.findViewById(R.id.tvPlateletCount);
+
             tvHospitalName = v.findViewById(R.id.tvHospitalName);
 
             tvTime = v.findViewById(R.id.tvTime);
             tvMobile = v.findViewById(R.id.tvMobile);
 
-            //l = v.findViewById(R.id.bg);
+            btnCall = v.findViewById(R.id.btnCall);
+            btnYes = v.findViewById(R.id.btnYes);
+
+
         }
     }
 
