@@ -128,11 +128,6 @@ public class ViewAppealActivity extends AppCompatActivity {
             case R.id.post:
                 startActivity(new Intent(getApplicationContext() , PostAppealActivity.class));
                 return true;
-            case R.id.logout:
-                auth.signOut();
-                startActivity(new Intent(getApplicationContext() , MainActivity.class));
-                finish();
-
             case R.id.myAppeals:
                 startActivity(new Intent(getApplicationContext(), AnalyzeAppealActivity.class));
                 return true;
@@ -148,6 +143,13 @@ public class ViewAppealActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext() , "WOrking on it" , Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext() , UpdataDatabase.class));
                 }
+                return true;
+            case R.id.logout:
+                auth.signOut();
+                startActivity(new Intent(getApplicationContext() , MainActivity.class));
+                finish();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
