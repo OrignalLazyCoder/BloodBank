@@ -65,7 +65,7 @@ public class CheckBloodBankDetailsActivity extends AppCompatActivity {
                                 snap.child("On").getValue().toString(),
                                 snap.child("ABp").getValue().toString(),
                                 snap.child("ABn").getValue().toString(),
-                                snap.child("name").getValue().toString(),
+                                snap.child("Name").getValue().toString(),
                                 snap.child("mobile").getValue().toString()
                         );
 

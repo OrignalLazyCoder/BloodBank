@@ -23,6 +23,7 @@ public class CreateBloodBankActivity extends AppCompatActivity {
     EditText regNumber;
     EditText city;
     Button confirm;
+    EditText mobileNumber;
 
     FirebaseAuth auth;
     FirebaseUser user;
@@ -38,6 +39,7 @@ public class CreateBloodBankActivity extends AppCompatActivity {
         regNumber = findViewById(R.id.bankRegNumber);
         city = findViewById(R.id.bankCity);
         confirm = findViewById(R.id.confirm);
+        mobileNumber = findViewById(R.id.bankMobile);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -56,13 +58,22 @@ public class CreateBloodBankActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext() , ViewAppealActivity.class));
             finish();
         }
-
+        final String o = "0";
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 reference.child("Name").setValue(name.getText().toString().trim());
                 reference.child("regNumber").setValue(regNumber.getText().toString().trim());
+                reference.child("mobile").setValue(mobileNumber.getText().toString().trim());
                 reference.child("city").setValue(city.getText().toString().trim());
+                reference.child("Ap").setValue(o);
+                reference.child("An").setValue(o);
+                reference.child("Bp").setValue(o);
+                reference.child("Bn").setValue((o));
+                reference.child("Op").setValue(o);
+                reference.child("On").setValue(o);
+                reference.child("ABp").setValue(o);
+                reference.child("ABn").setValue(o);
                 startActivity(new Intent(getApplicationContext() , ViewAppealActivity.class));
                 finish();
             }
