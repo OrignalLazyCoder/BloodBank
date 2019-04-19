@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#ff3333"
     android:layout_margin="10dp">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="Blood Bank name : "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
@@ -20,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:textColor="#ffffff"
             android:id="@+id/tvName"/>
 
     </LinearLayout>
@@ -31,12 +34,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="Blood Bank Mobile : "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:id="@+id/tvMobile"
             />
@@ -51,12 +56,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="A+ve units : "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:id="@+id/tvAp"
             />
@@ -65,18 +72,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
+
         android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:text="A-ve units : "
             android:textSize="18dp"
+            android:textColor="#ffffff"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:textColor="#ffffff"
             android:id="@+id/tvAn"
             />
 
@@ -89,6 +99,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="B+ve units : "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
@@ -96,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:textColor="#ffffff"
             android:id="@+id/tvBp"
             />
 
@@ -108,12 +120,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="B-ve units : "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:id="@+id/tvBn"
             />
@@ -127,12 +141,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="O+ve units: "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:id="@+id/tvOp"
             />
@@ -146,12 +162,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="O-ve units: "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:id="@+id/tvOn"
             />
@@ -165,12 +183,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="AB+ve units : "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:id="@+id/tvABp"
             android:textSize="18dp"
             />
@@ -184,6 +204,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="AB-ve units: "
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
 
@@ -191,6 +212,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:textColor="#ffffff"
             android:id="@+id/tvABn"
             />
 
@@ -199,7 +221,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="call"
+        android:background="@drawable/border_bg1"
+        android:padding="5dp"
         android:id="@+id/callBloodBank"
         android:layout_gravity="center"/>
 

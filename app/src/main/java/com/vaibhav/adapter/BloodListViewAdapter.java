@@ -69,13 +69,13 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
 
         //set content
 
-        holder.tvName.setText(bloodModel.getName());
-        holder.tvBloodGroup.setText(bloodModel.getBloodType());
-        holder.tvBloodUnit.setText(bloodModel.getBloodUnit());
-        holder.tvPlateCount.setText(bloodModel.getPlateletsCount());
-        holder.tvHospitalName.setText(bloodModel.getHospital());
-        holder.tvTime.setText(bloodModel.getTime());
-        holder.tvMobile.setText(bloodModel.getMobile());
+        holder.tvName.setText("Name: " + bloodModel.getName());
+        holder.tvBloodGroup.setText("Blood type: "+bloodModel.getBloodType());
+        holder.tvBloodUnit.setText("No. of units: "+bloodModel.getBloodUnit());
+        holder.tvPlateCount.setText("Platletes needed: "+bloodModel.getPlateletsCount());
+        holder.tvHospitalName.setText("Hospital: "+bloodModel.getHospital());
+        holder.tvTime.setText("Time:"+bloodModel.getTime());
+        holder.tvMobile.setText("Mobile No.: "+bloodModel.getMobile());
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();

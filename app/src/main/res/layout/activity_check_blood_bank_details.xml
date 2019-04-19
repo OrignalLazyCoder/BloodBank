@@ -5,19 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".HelpModule.CheckBloodBankDetailsActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:text="Blood Banks Near You"
         android:layout_gravity="center"
         android:textSize="20dp"
+        android:background="#ff3333"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         android:layout_height="wrap_content" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:dividerHeight="10.0sp"
         android:id="@+id/listView">
 
 

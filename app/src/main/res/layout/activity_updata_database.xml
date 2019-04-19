@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6969"
+    android:background="#ff3333"
     android:orientation="vertical"
     tools:context=".ManageDatabase.UpdataDatabase">
 
@@ -18,51 +18,77 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Op"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="O+ve units available"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/On"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="O-ve units available"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Ap"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="A+ve Available"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/An"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="A-ve Available"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Bp"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="B+ve Available"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Bn"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="B-ve Available"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ABp"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="AB+ve Available"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ABn"
+            android:padding="5dp"
+            android:background="@drawable/border_bg"
+            android:textColorHint="#ffffff"
             android:hint="AB-ve Available"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/border_bg1"
             android:text="update database"
             android:id="@+id/update"/>
 

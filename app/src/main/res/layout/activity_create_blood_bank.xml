@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginModule.CreateBloodBankActivity"
     android:orientation="vertical"
-    android:background="#6969">
+    android:background="#ff3333">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,6 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Blood Bank Name"
+            android:background="@drawable/border_bg"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
             android:id="@+id/bankName"
             />
 
@@ -25,12 +28,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Registration Number"
+            android:background="@drawable/border_bg"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
             android:id="@+id/bankRegNumber"
             android:inputType="text"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_bg"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
             android:hint="Enter City"
             android:id="@+id/bankCity"
             android:inputType="text"
@@ -40,12 +49,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bankMobile"
+            android:background="@drawable/border_bg"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
+            android:hint="Mobile Number"
             android:inputType="number"/>
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/border_bg1"
+            android:padding="5dp"
+            android:layout_margin="5dp"
             android:id="@+id/confirm"
             android:text="confirm details"/>
 

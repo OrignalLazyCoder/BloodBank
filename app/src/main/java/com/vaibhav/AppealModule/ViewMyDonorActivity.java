@@ -1,6 +1,8 @@
 package com.vaibhav.AppealModule;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +38,8 @@ public class ViewMyDonorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_my_donor);
 
         myDonorListView = findViewById(R.id.lvAvailableDonors);
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#ff3333")));
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();

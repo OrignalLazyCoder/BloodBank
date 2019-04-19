@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".AppealModule.ViewMyDonorActivity">
 
     <TextView
         android:id="@+id/tvAvailableDonorTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="#ff3333"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18dp"
         android:layout_height="wrap_content"
         android:text="Available Donors" />
 
     <ListView
         android:id="@+id/lvAvailableDonors"
         android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:dividerHeight="10.0sp"
+
+        android:padding="5dp"
         android:layout_height="match_parent" />
 </LinearLayout>

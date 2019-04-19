@@ -2,6 +2,8 @@ package com.vaibhav;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
 
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#ff3333")));
 
         userEmail = findViewById(R.id.userid);
         userPass = findViewById(R.id.userpwd);

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/post"
-        android:title="post appeal"
+        android:title="Post Blood Requirement"
 />
 
     <item
         android:id="@+id/myAppeals"
-        android:title="My Appeal" />
+        android:title="My Appeals" />
+
+
     <item android:id="@+id/data"
-        android:title="update Data"/>
+        android:title="Update Database"/>
 
     <item
         android:id="@+id/Checkbanks"

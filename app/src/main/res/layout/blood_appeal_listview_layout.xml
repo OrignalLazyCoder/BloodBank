@@ -1,114 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="20dp"-->
+    <!--android:background="#eee"-->
+    <!--android:orientation="vertical"-->
+    <!--android:paddingBottom="10dp">-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvName"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="Name"-->
+        <!--android:textSize="18sp"-->
+        <!--android:textStyle="bold|italic" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvBloodGroup"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:text="Blood Group"-->
+            <!--android:textSize="18sp"-->
+            <!--android:textStyle="bold|italic" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvBloodUnit"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:text="Blood Unit"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="italic" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvPlateletCount"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="PlateletCounts" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvHospitalName"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Hospital Name, Address" />-->
+    <!--</LinearLayout>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvTime"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="Time"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textStyle="italic" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvMobile"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="Mobile"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textStyle="italic" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnYes"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Yes" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnCall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="call" />-->
+    <!--</LinearLayout>-->
+<!--</LinearLayout>-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="20dp"
+android:background="@drawable/item_bg"
+android:orientation="vertical"
+android:padding="10dp">
+
+<TextView
+    android:id="@+id/tvName"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:background="#eee"
-    android:orientation="vertical"
-    android:paddingBottom="10dp">
+    android:layout_marginBottom="5dp"
+    android:gravity="center_horizontal"
+    android:text="Name"
+    android:textColor="#ffffff"
+    android:textSize="18sp"
+    android:textStyle="bold|italic" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="match_parent"
+        android:id="@+id/tvBloodGroup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
+        android:textColor="#ffffff"
         android:gravity="center_horizontal"
-        android:text="Name"
+        android:text="Blood Group"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tvBloodGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal"
-            android:text="Blood Group"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            android:id="@+id/tvBloodUnit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal"
-            android:text="Blood Unit"
-            android:textSize="16sp"
-            android:textStyle="italic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tvPlateletCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="PlateletCounts" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tvHospitalName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Hospital Name, Address" />
-    </LinearLayout>
-
     <TextView
-        android:id="@+id/tvTime"
+        android:id="@+id/tvBloodUnit"
         android:layout_width="match_parent"
+        android:textColor="#ffffff"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:gravity="center_horizontal"
-        android:text="Time"
+        android:text="Blood Unit"
         android:textSize="16sp"
         android:textStyle="italic" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tvMobile"
-        android:layout_width="match_parent"
+        android:id="@+id/tvPlateletCount"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:gravity="center_horizontal"
-        android:text="Mobile"
-        android:textSize="16sp"
-        android:textStyle="italic" />
+        android:layout_weight="1"
+        android:text="PlateletCounts" />
+</LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvHospitalName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:text="Hospital Name, Address" />
+</LinearLayout>
 
-        <Button
-            android:id="@+id/btnYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Yes" />
+<TextView
+    android:id="@+id/tvTime"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:gravity="center_horizontal"
+    android:text="Time"
+    android:textSize="16sp"
+    android:textColor="#ffffff"
+    android:textStyle="italic" />
 
-        <Button
-            android:id="@+id/btnCall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="call" />
-    </LinearLayout>
+<TextView
+    android:id="@+id/tvMobile"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:gravity="center_horizontal"
+    android:text="Mobile"
+    android:textSize="16sp"
+    android:textColor="#ffffff"
+    android:textStyle="italic" />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btnYes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_bg1"
+        android:text="Yes" />
+
+    <Button
+        android:id="@+id/btnCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_bg1"
+        android:text="call" />
+</LinearLayout>
 </LinearLayout>

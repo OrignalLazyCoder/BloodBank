@@ -1,6 +1,8 @@
 package com.vaibhav.LoginModule;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +36,9 @@ public class CreateBloodBankActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_blood_bank);
+
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#ff3333")));
 
         name = findViewById(R.id.bankName);
         regNumber = findViewById(R.id.bankRegNumber);

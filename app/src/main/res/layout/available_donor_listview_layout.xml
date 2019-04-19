@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
+    android:background="#ff3333"
     android:orientation="vertical">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Donor Name"
+        android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -20,6 +22,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Donor Location"
+        android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -29,15 +32,18 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Donor Mobile"
+        android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnCallDonor"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:text="Call Donor"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_bg1" />
 </LinearLayout>

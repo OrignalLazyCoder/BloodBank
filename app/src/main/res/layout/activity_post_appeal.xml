@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6969"
+    android:background="#ff3333"
     android:orientation="vertical"
     tools:context=".AppealModule.PostAppealActivity">
 
@@ -18,22 +18,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/patientName"
+            android:background="@drawable/border_bg"
+            android:padding="9dp"
+            android:textColorHint="#ffffff"
             android:hint="Enter Name"
             />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="#ffffff"
+            android:background="@drawable/border_bg"
+            android:padding="9dp"
             android:id="@+id/patientBloodGroup"
             android:hint="Blood Group required"
             />
+
         <EditText
+            android:id="@+id/units"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/units"
-            android:hint="units"
-             android:inputType="number"
-            />
+            android:background="@drawable/border_bg"
+            android:hint="Units Needed"
+            android:inputType="number"
+            android:padding="9dp"
+            android:textColorHint="#ffffff" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,17 +51,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_bg"
+                android:padding="9dp"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
                 android:text="Platletes required?"/>
 
             <CheckBox
                 android:id="@+id/CheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="yes" />
+                android:text="YES" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#ffffff"
+                android:background="@drawable/border_bg"
+                android:padding="9dp"
                 android:hint="how much?"
                 android:id="@+id/platelets"
                 android:text="0"
@@ -60,28 +76,39 @@
         </LinearLayout>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/location"
-            android:hint="city"/>
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_bg"
+            android:hint="City"
+            android:padding="9dp"
+            android:textColorHint="#ffffff" />
+
+        <EditText
             android:id="@+id/hospital"
-            android:hint="hospital"
-            />
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_bg"
+            android:hint="Hospital"
+            android:padding="9dp"
+            android:textColorHint="#ffffff" />
+
+        <EditText
             android:id="@+id/mobile"
-            android:hint="moblie number"
-            android:inputType="number"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_bg"
+            android:hint="Mobile Number"
+            android:inputType="number"
+            android:padding="9dp"
+            android:textColorHint="#ffffff" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="9dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_bg1"
             android:text="upload"
             android:id="@+id/conformButton"/>
 

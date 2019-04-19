@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#6969"
+    android:background="#ff3333"
     tools:context=".RegisterActivity">
 
     <LinearLayout
@@ -15,11 +15,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:text="Registration Screen"
-            android:textColor="#FF0000"
+            android:layout_gravity="center_horizontal"
+            android:text="Registration Panel"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -27,6 +28,9 @@
             android:id="@+id/userid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_bg"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
             android:hint="Enter Email"
             android:inputType="textEmailAddress" />
 
@@ -35,6 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Password"
+            android:background="@drawable/border_bg"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
             android:inputType="textPassword" />
 
         <RadioGroup
@@ -46,6 +53,9 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_bg"
+                android:padding="5dp"
+                android:textColor="#ffffff"
                 android:id="@+id/bloodBank"
                 android:text="I am a blood bank"/>
 
@@ -53,6 +63,9 @@
                 android:id="@+id/normalUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_bg"
+                android:padding="5dp"
+                android:textColor="#ffffff"
                 android:text="I am user of the user"/>
 
         </RadioGroup>
@@ -61,6 +74,10 @@
             android:id="@+id/regbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/border_bg1"
             android:text="Register" />
 
     </LinearLayout>

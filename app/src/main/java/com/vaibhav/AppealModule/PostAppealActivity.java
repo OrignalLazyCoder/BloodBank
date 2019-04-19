@@ -1,5 +1,7 @@
 package com.vaibhav.AppealModule;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +44,8 @@ public class PostAppealActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_appeal);
-
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#ff3333")));
         name = findViewById(R.id.patientName);
         bloodGroup = findViewById(R.id.patientBloodGroup);
         units = findViewById(R.id.units);

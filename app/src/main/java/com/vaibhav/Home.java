@@ -1,6 +1,9 @@
 package com.vaibhav;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +42,8 @@ public class Home extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
 
+    ProgressDialog progressDoalog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,8 @@ public class Home extends AppCompatActivity {
         user  = auth.getCurrentUser();
         emailCheck = findViewById(R.id.emailCheck);
 
+        getSupportActionBar().setBackgroundDrawable(
+                new ColorDrawable(Color.parseColor("#ff3333")));
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("users").child(user.getUid());
@@ -58,6 +65,9 @@ public class Home extends AppCompatActivity {
 
         if(true){
             emailCheck.setText("Email Verified");
+            ProgressDialog pd = new ProgressDialog(Home.this);
+            pd.setMessage("Fetching Latest Data");
+            pd.show();
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
