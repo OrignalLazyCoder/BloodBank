@@ -38,7 +38,6 @@ public class Home extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference reference;
-    String userType = " ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +52,13 @@ public class Home extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("users").child(user.getUid());
+        final String[] userType = {" "};
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String type = dataSnapshot.child("type").getValue(String.class);
-                userType = type;
+                userType[0] = type;
                 Toast.makeText(getApplicationContext() , type , Toast.LENGTH_SHORT).show();
             }
 
@@ -70,7 +70,7 @@ public class Home extends AppCompatActivity {
 
         if(user.isEmailVerified()){
             emailCheck.setText("Email Verified");
-            if(userType.equals("user")) {
+            if(userType[0].equals("user")) {
                 startActivity(new Intent(Home.this, CreateNormalUserActivity.class));
                 finish();
             }
