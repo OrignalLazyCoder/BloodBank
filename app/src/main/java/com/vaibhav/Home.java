@@ -68,7 +68,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        if(user.isEmailVerified()){
+        if(true){
             emailCheck.setText("Email Verified");
             if(userType[0].equals("user")) {
                 startActivity(new Intent(Home.this, CreateNormalUserActivity.class));
