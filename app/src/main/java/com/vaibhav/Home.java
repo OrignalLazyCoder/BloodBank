@@ -1,6 +1,7 @@
 package com.vaibhav;
 
 import android.content.Intent;
+import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.vaibhav.LoginModule.CreateNormalUserActivity;
 
 import org.w3c.dom.Text;
 
@@ -66,6 +68,8 @@ public class Home extends AppCompatActivity {
 
         if(user.isEmailVerified()){
             emailCheck.setText("Email Verified");
+            startActivity(new Intent(Home.this , CreateNormalUserActivity.class));
+            finish();
         }
         else{
             emailCheck.setText("Email Not verified");
