@@ -88,6 +88,9 @@ public class PostAppealActivity extends AppCompatActivity {
                 childUpdates.put("hospital" , hospital.getText().toString().trim());
                 childUpdates.put("mobile" , mobile.getText().toString().trim());
                 childUpdates.put("DateTime" , formatter.format(date));
+                childUpdates.put("Response" , " ");
+                childUpdates.put("uploadedBy" , user.getEmail());
+                childUpdates.put("uploaderID" , user.getUid());
                 database.getReference("appeals").child(key).updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
