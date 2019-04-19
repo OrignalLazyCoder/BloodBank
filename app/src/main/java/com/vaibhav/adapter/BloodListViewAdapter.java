@@ -1,6 +1,7 @@
 package com.vaibhav.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +25,9 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         this.values = values;
     }
 
-    @androidx.annotation.NonNull
+    @NonNull
     @Override
-    public View getView(int position, @androidx.annotation.Nullable View convertView, @androidx.annotation.NonNull ViewGroup parent) {
+    public View getView(int position, @NonNull View convertView, @NonNull ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View bloodAppealListViewLayout = inflater.inflate(R.layout.blood_appeal_listview_layout, parent, false);
@@ -37,6 +38,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         TextView tvName = bloodAppealListViewLayout.findViewById(R.id.tvName);
         TextView tvBloodGroup = bloodAppealListViewLayout.findViewById(R.id.tvBloodGroup);
         TextView tvBloodUnit = bloodAppealListViewLayout.findViewById(R.id.tvBloodUnit);
+
 
         TextView tvPlateCount = bloodAppealListViewLayout.findViewById(R.id.tvPlateletCount);
 
@@ -61,8 +63,6 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
 
         tvTime.setText(values.get(position).getTime());
         tvMobile.setText(values.get(position).getMobile());
-
-
 
 
 
