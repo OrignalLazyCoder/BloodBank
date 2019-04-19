@@ -56,7 +56,7 @@ public class ViewMyDonorActivity extends AppCompatActivity {
                     AvailableDonorModel donor = new AvailableDonorModel(
                             snapshot.child("userEmail").getValue().toString(),
                             snapshot.child("userName").getValue().toString(),
-                            snapshot.child("location").getValue().toString(),
+                            "Contact Number",
                             snapshot.child("userMobile").getValue().toString()
 
                     );

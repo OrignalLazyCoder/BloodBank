@@ -88,7 +88,6 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 name = (String) dataSnapshot.child("Name").getValue();
                 mobile = (String) dataSnapshot.child("mobile").getValue();
-                location = (String) dataSnapshot.child("city").getValue();
 
             }
 
@@ -138,8 +137,6 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
                     childUpdates.put("userEmail", user.getEmail());
                     childUpdates.put("userMobile", mobile);
                     childUpdates.put("userName", name);
-                    childUpdates.put("location" , location);
-
                     reference.child(key).child("userEmail").setValue(user.getEmail());
                     reference.child(key).child("userMobile").setValue(mobile);
                     reference.child(key).child("userName").setValue(name);
