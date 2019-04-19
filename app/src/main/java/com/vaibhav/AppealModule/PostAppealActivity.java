@@ -80,6 +80,7 @@ public class PostAppealActivity extends AppCompatActivity {
                 System.out.println(formatter.format(date));
                 String key = database.getReference("appeals").push().getKey();
                 Map<String, Object> childUpdates = new HashMap<>();
+                childUpdates.put("ID" , key);
                 childUpdates.put( "name"  , name.getText().toString().trim());
                 childUpdates.put("bloodGroup" , bloodGroup.getText().toString().trim());
                 childUpdates.put("units" , units.getText().toString().trim());

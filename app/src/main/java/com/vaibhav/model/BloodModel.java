@@ -2,6 +2,8 @@ package com.vaibhav.model;
 
 public class BloodModel {
 
+    private String appealId;
+
     private String name;
     private String bloodType;
     private String bloodUnit;
@@ -16,7 +18,8 @@ public class BloodModel {
 
     private String mobile;
 
-    public BloodModel(String name, String bloodType, String bloodUnit, boolean isPlatelets, String plateletsCount, String location, String hospital, String time, String mobile) {
+    public BloodModel(String appealId, String name, String bloodType, String bloodUnit, boolean isPlatelets, String plateletsCount, String location, String hospital, String time, String mobile) {
+        this.appealId = appealId;
         this.name = name;
         this.bloodType = bloodType;
         this.bloodUnit = bloodUnit;
@@ -26,6 +29,10 @@ public class BloodModel {
         this.hospital = hospital;
         this.time = time;
         this.mobile = mobile;
+    }
+
+    public String getAppealId() {
+        return appealId;
     }
 
     public String getName() {

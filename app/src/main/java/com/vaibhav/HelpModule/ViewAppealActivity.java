@@ -83,9 +83,11 @@ public class ViewAppealActivity extends AppCompatActivity {
         referenceForAppeals.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
                 for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
 
                     BloodModel b1 = new BloodModel(
+                            item_snapshot.child("ID").getValue().toString(),
                             item_snapshot.child("name").getValue().toString(),
                             item_snapshot.child("bloodGroup").getValue().toString(),
                             item_snapshot.child("units").getValue().toString(),
@@ -108,7 +110,7 @@ public class ViewAppealActivity extends AppCompatActivity {
 
             }
         });
-        
+
     }
 
     @Override
