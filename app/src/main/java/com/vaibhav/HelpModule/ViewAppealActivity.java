@@ -108,39 +108,7 @@ public class ViewAppealActivity extends AppCompatActivity {
 
             }
         });
-
-//        BloodModel b1 = new BloodModel(
-//                "Haris Tyagi",
-//                "AB+",
-//                "1000",
-//                true,
-//                "100000",
-//                "Muzaffarnagar",
-//                "S.C. Gupta",
-//                "3 A.M Tommorow",
-//                "9045997787"
-//        );
-//
-//        BloodModel b2 = new BloodModel(
-//                "Haris Tyagi",
-//                "AB+",
-//                "1000",
-//                true,
-//                "100000",
-//                "Muzaffarnagar",
-//                "S.C. Gupta",
-//                "3 A.M Tommorow",
-//                "9045997787"
-//        );
-//
-//
-//        list.add(b1);
-//        list.add(b2);
-//        list.add(b2);
-
-
-
-
+        
     }
 
     @Override
