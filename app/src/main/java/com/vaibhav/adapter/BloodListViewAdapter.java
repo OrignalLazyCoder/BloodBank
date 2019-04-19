@@ -79,7 +79,6 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference().child("appeals").child(bloodModel.getAppealId()).child("Response");
         userRef = database.getReference().child("users").child(user.getUid());
 
 
@@ -88,7 +87,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 name = (String) dataSnapshot.child("Name").getValue();
                 mobile = (String) dataSnapshot.child("mobile").getValue();
-                System.out.println(mobile + " yes yes yes " +name);
+
             }
 
             @Override
@@ -107,26 +106,30 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             }
         });
 
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
-                    String email =    item_snapshot.child("userEmail").getValue().toString();
-                    if(email.equals(user.getEmail())){
-                        canSayYes = false;
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
         holder.btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                reference = database.getReference().child("appeals").child(bloodModel.getAppealId()).child("Response");
+                canSayYes = true;
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
+                            String email = item_snapshot.child("userEmail").getValue().toString();
+                            if(email.equals(user.getEmail())){
+                                Log.d("Item ID" , bloodModel.getAppealId());
+                                canSayYes = false;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                Toast.makeText(activity, "Reference Key: "+ reference.getKey(), Toast.LENGTH_SHORT).show();
                 if (canSayYes) {
                     String key = reference.push().getKey();
                     Map<String, Object> childUpdates = new HashMap<>();
@@ -134,14 +137,18 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
                     System.out.println(mobile + "yes yes yes");
                     childUpdates.put("userMobile", mobile);
                     childUpdates.put("userName", name);
-
-                    reference.child(key).updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                            if (databaseError == null) {
-                            }
-                        }
-                    });
+//
+//                    reference.child(key).updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
+//                        @Override
+//                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//                            if (databaseError == null) {
+//                            }
+//                        }
+//                    });
+                    reference.child(key).child("userEmail").setValue(user.getEmail());
+                    reference.child(key).child("userMobile").setValue(mobile);
+                    reference.child(key).child("userName").setValue(name);
+                    Log.d("key" , key);
                 }
                 else{
                     Toast.makeText(getContext() , "You have already volunteered for this"  , Toast.LENGTH_SHORT).show();

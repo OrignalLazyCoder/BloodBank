@@ -60,7 +60,7 @@ public class CreateBloodBankActivity extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.child("name").setValue(name.getText().toString().trim());
+                reference.child("Name").setValue(name.getText().toString().trim());
                 reference.child("regNumber").setValue(regNumber.getText().toString().trim());
                 reference.child("city").setValue(city.getText().toString().trim());
                 startActivity(new Intent(getApplicationContext() , ViewAppealActivity.class));
