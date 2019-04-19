@@ -1,15 +1,89 @@
 package com.vaibhav.HelpModule;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.vaibhav.AppealModule.PostAppealActivity;
+import com.vaibhav.MainActivity;
 import com.vaibhav.R;
+import com.vaibhav.adapter.BloodListViewAdapter;
+import com.vaibhav.model.BloodModel;
+
+import java.util.ArrayList;
 
 public class ViewAppealActivity extends AppCompatActivity {
+
+    ListView lvBloodAppeal;
+    ArrayList<BloodModel> list;
+    FirebaseAuth auth;
+    FirebaseUser user;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_appeal);
+
+        lvBloodAppeal = (ListView) findViewById(R.id.lvBLoodAppeal);
+
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+
+        list = new ArrayList<BloodModel>();
+
+
+        BloodModel b1 = new BloodModel(
+                "Haris Tyagi",
+                "AB+",
+                "1000",
+                true,
+                "100000",
+                "Muzaffarnagar",
+                "S.C. Gupta",
+                "3 A.M Tommorow",
+                "9045997787"
+        );
+
+        list.add(b1);
+
+        BloodListViewAdapter bloodListViewAdapter = new BloodListViewAdapter(this, list);
+
+        lvBloodAppeal.setAdapter(bloodListViewAdapter);
+
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+            case R.id.post:
+                startActivity(new Intent(getApplicationContext() , PostAppealActivity.class));
+                return true;
+            case R.id.logout:
+                auth.signOut();
+                startActivity(new Intent(getApplicationContext() , MainActivity.class));
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
 }
