@@ -55,11 +55,26 @@ public class ViewAppealActivity extends AppCompatActivity {
                 "9045997787"
         );
 
-        list.add(b1);
+        BloodModel b2 = new BloodModel(
+                "Haris Tyagi",
+                "AB+",
+                "1000",
+                true,
+                "100000",
+                "Muzaffarnagar",
+                "S.C. Gupta",
+                "3 A.M Tommorow",
+                "9045997787"
+        );
 
-//        BloodListViewAdapter bloodListViewAdapter = new BloodListViewAdapter(this, list);
-//
-//        lvBloodAppeal.setAdapter(bloodListViewAdapter);
+
+        list.add(b1);
+        list.add(b2);
+        list.add(b2);
+
+        BloodListViewAdapter bloodListViewAdapter = new BloodListViewAdapter(this, R.layout.blood_appeal_listview_layout, list);
+
+        lvBloodAppeal.setAdapter(bloodListViewAdapter);
 
     }
 

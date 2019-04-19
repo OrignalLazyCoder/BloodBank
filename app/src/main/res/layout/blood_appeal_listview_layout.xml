@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="20dp"
+    android:background="#eee"
     android:orientation="vertical">
 
     <TextView
@@ -40,12 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/cbPlatelets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Platelets ?" />
 
         <TextView
             android:id="@+id/tvPlateletCount"
