@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.vaibhav.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,6 +75,9 @@ public class PostAppealActivity extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                Date date = new Date();
+                System.out.println(formatter.format(date));
                 String key = database.getReference("appeals").push().getKey();
                 Map<String, Object> childUpdates = new HashMap<>();
                 childUpdates.put( "name"  , name.getText().toString().trim());
@@ -82,6 +87,7 @@ public class PostAppealActivity extends AppCompatActivity {
                 childUpdates.put("location" , location.getText().toString().trim());
                 childUpdates.put("hospital" , hospital.getText().toString().trim());
                 childUpdates.put("mobile" , mobile.getText().toString().trim());
+                childUpdates.put("DateTime" , formatter.format(date));
                 database.getReference("appeals").child(key).updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
