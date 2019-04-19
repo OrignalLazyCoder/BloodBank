@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HelpModule.CheckBloodBankDetailsActivity"></activity>
+        <activity android:name=".AppealModule.ViewMyDonorActivity"></activity>
+        <activity android:name=".HelpModule.CheckBloodBankDetailsActivity" />
         <activity android:name=".ManageDatabase.UpdataDatabase" />
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".PushNotificationModules.VolunteerActivity" />

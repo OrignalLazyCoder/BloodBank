@@ -4,6 +4,9 @@
         android:title="post appeal"
 />
 
+    <item
+        android:id="@+id/myAppeals"
+        android:title="My Appeal" />
     <item android:id="@+id/data"
         android:title="update Data"/>
 

@@ -5,23 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AppealModule.AnalyzeAppealActivity">
+    tools:context=".AppealModule.ViewMyDonorActivity">
 
     <TextView
-        android:id="@+id/tvDonorAvailable"
+        android:id="@+id/tvAvailableDonorTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="center_horizontal"
-        android:text="Donor Available"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:text="Available Donors" />
 
     <ListView
-        android:id="@+id/lvMyAppeals"
+        android:id="@+id/lvAvailableDonors"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="10.0sp" />
+        android:layout_height="match_parent" />
 </LinearLayout>

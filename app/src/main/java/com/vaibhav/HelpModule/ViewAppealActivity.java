@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.vaibhav.AppealModule.AnalyzeAppealActivity;
 import com.vaibhav.AppealModule.PostAppealActivity;
 import com.vaibhav.MainActivity;
 import com.vaibhav.ManageDatabase.UpdataDatabase;
@@ -83,6 +84,8 @@ public class ViewAppealActivity extends AppCompatActivity {
         referenceForAppeals.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
                 for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
 
                     BloodModel b1 = new BloodModel(
@@ -129,6 +132,10 @@ public class ViewAppealActivity extends AppCompatActivity {
                 auth.signOut();
                 startActivity(new Intent(getApplicationContext() , MainActivity.class));
                 finish();
+
+            case R.id.myAppeals:
+                startActivity(new Intent(getApplicationContext(), AnalyzeAppealActivity.class));
+
             case R.id.data:
                 if(userType.equals("user")){
                     Toast.makeText(getApplicationContext() , "This feature is only for blood banks" , Toast.LENGTH_SHORT).show();
