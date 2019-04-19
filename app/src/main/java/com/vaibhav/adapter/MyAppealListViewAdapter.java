@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.vaibhav.AppealModule.ViewMyDonorActivity;
 import com.vaibhav.R;
 import com.vaibhav.model.BloodModel;
 import com.vaibhav.model.MyAppealsModel;
@@ -57,7 +58,12 @@ public class MyAppealListViewAdapter extends ArrayAdapter<MyAppealsModel> {
             @Override
             public void onClick(View v) {
 
-                
+                Intent intent = new Intent(getContext(), ViewMyDonorActivity.class);
+
+                intent.putExtra("donorId",myAppeal.getAppealId());
+
+                getContext().startActivity(intent);
+
             }
         });
 
@@ -91,6 +97,7 @@ public class MyAppealListViewAdapter extends ArrayAdapter<MyAppealsModel> {
             tvAppealTime = v.findViewById(R.id.tvAppealTime);
 
             btnShowAvailableDonors = v.findViewById(R.id.btnShowAvaibleDonors);
+
 
         }
     }

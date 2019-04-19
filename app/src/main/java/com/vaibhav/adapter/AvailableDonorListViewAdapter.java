@@ -1,6 +1,8 @@
 package com.vaibhav.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,6 @@ import android.widget.TextView;
 
 import com.vaibhav.R;
 import com.vaibhav.model.AvailableDonorModel;
-import com.vaibhav.model.MyAppealsModel;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class AvailableDonorListViewAdapter extends ArrayAdapter<AvailableDonorMo
         if (convertView != null) {
             holder = (AvailableDonorListViewAdapter.ViewHolder) convertView.getTag();
         } else {
-            convertView = inflater.inflate(R.layout.myappeals_listview_layout, parent, false);
+            convertView = inflater.inflate(R.layout.available_donor_listview_layout, parent, false);
             holder = new AvailableDonorListViewAdapter.ViewHolder(convertView);
             convertView.setTag(holder);
         }
@@ -54,7 +55,8 @@ public class AvailableDonorListViewAdapter extends ArrayAdapter<AvailableDonorMo
             @Override
             public void onClick(View v) {
 
-
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ donorObj.getDonorMobile()));
+                getContext().startActivity(intent);
             }
         });
 

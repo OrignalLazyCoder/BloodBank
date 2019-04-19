@@ -61,7 +61,7 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             @Override
             public void onClick(View v) {
 
-                    
+
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + bloodModel.getMobile()));
                 getContext().startActivity(intent);
             }
@@ -94,7 +94,6 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         TextView tvName;
         TextView tvBloodGroup;
         TextView tvBloodUnit;
-
 
         TextView tvPlateCount;
         TextView tvHospitalName;

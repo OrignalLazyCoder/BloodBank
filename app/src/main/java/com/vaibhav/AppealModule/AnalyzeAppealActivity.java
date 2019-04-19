@@ -39,7 +39,7 @@ public class AnalyzeAppealActivity extends AppCompatActivity {
         myAppealsModelArrayList.add(newAppeal);
 
 
-        MyAppealListViewAdapter myAppealListViewAdapter = new MyAppealListViewAdapter(this, R.id.lvMyAppeals, myAppealsModelArrayList);
+        MyAppealListViewAdapter myAppealListViewAdapter = new MyAppealListViewAdapter(this, R.layout.myappeals_listview_layout, myAppealsModelArrayList);
 
         myAppealListView.setAdapter(myAppealListViewAdapter);
     }
