@@ -59,7 +59,7 @@ public class Home extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String type = dataSnapshot.child("type").getValue(String.class);
                 userType[0] = type;
-                Toast.makeText(getApplicationContext() , type , Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext() , type , Toast.LENGTH_SHORT).show();
             }
 
             @Override

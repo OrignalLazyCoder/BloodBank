@@ -27,6 +27,7 @@ public class CreateNormalUserActivity extends AppCompatActivity {
     EditText userCity;
     EditText userBlood;
     EditText userAge;
+    EditText userMobile;
     Button confirm;
 
     @Override
@@ -39,6 +40,7 @@ public class CreateNormalUserActivity extends AppCompatActivity {
         userBlood = findViewById(R.id.userBloodGroup);
         userAge = findViewById(R.id.userAge);
         confirm = findViewById(R.id.confirm);
+        userMobile = findViewById(R.id.mobileNumber);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -64,6 +66,7 @@ public class CreateNormalUserActivity extends AppCompatActivity {
                 reference.child("city").setValue(userCity.getText().toString().trim());
                 reference.child("blood").setValue(userBlood.getText().toString().trim());
                 reference.child("age").setValue(userAge.getText().toString().trim());
+                reference.child("mobile").setValue(userMobile.getText().toString().trim());
                 reference.child("verified").setValue("yes");
                 Toast.makeText(getApplicationContext() , "You are all set" , Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext() , ViewAppealActivity.class));

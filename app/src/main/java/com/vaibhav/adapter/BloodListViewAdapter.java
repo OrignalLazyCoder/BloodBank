@@ -3,6 +3,8 @@ package com.vaibhav.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,19 +12,36 @@ import android.widget.ArrayAdapter;
 
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vaibhav.R;
 import com.vaibhav.model.BloodModel;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 
 public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
 
     private Activity activity;
     private List<BloodModel> bloodModels;
+    FirebaseAuth auth;
+    FirebaseUser user;
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    DatabaseReference userRef;
+    String name = " ";
+    String mobile = " " ;
+    Boolean canSayYes = true;
 
     public BloodListViewAdapter(Activity context , int resource , List<BloodModel> objects){
         super(context , resource ,objects);
@@ -57,6 +76,27 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
         holder.tvTime.setText(bloodModel.getTime());
         holder.tvMobile.setText(bloodModel.getMobile());
 
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference().child("appeals").child(bloodModel.getAppealId()).child("Response");
+        userRef = database.getReference().child("users").child(user.getUid());
+
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name = (String) dataSnapshot.child("Name").getValue();
+                mobile = (String) dataSnapshot.child("mobile").getValue();
+                System.out.println(mobile + " yes yes yes " +name);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,13 +107,47 @@ public class BloodListViewAdapter extends ArrayAdapter<BloodModel> {
             }
         });
 
-        holder.btnYes.setOnClickListener(new View.OnClickListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot item_snapshot:dataSnapshot.getChildren()) {
+                    String email =    item_snapshot.child("userEmail").getValue().toString();
+                    if(email.equals(user.getEmail())){
+                        canSayYes = false;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
 
+        holder.btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (canSayYes) {
+                    String key = reference.push().getKey();
+                    Map<String, Object> childUpdates = new HashMap<>();
+                    childUpdates.put("userEmail", user.getEmail());
+                    System.out.println(mobile + "yes yes yes");
+                    childUpdates.put("userMobile", mobile);
+                    childUpdates.put("userName", name);
+
+                    reference.child(key).updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            if (databaseError == null) {
+                            }
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(getContext() , "You have already volunteered for this"  , Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         return convertView;
     }
